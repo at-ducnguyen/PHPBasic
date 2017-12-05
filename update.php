@@ -11,8 +11,8 @@ $user = $_SESSION['username'];
 $sql="SELECT * FROM users where username='$user'";
 $query = $conn->prepare($sql);
 $query->execute();
-$row = $query->fetch();
-$username = $row['username'];
+$user = $query->fetch();
+$username = $user['username'];
 
 $err=" * Required field";
 $error = array();
@@ -69,7 +69,7 @@ if (!$error){
             
             <tr>
                 <td>Email <span style="color: red">*</span></td>
-                <td><input type="mail" name="email" value="<?php echo !isset($email) ? $row['email'] : $email?>" class="form-control" placeholder="Enter your email"><span style="color: red">
+                <td><input type="mail" name="email" value="<?php echo !isset($email) ? $user['email'] : $email?>" class="form-control" placeholder="Enter your email"><span style="color: red">
                     <?php echo isset($error['email']) ? $error['email'] : '' ;?></span></td>
             </tr>
 

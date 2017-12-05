@@ -2,7 +2,7 @@
 <?php 
 session_start();
 if (!isset($_SESSION['username'])) {
- echo 'You need login to see list of member ! Click <a href="login.php"> here </a> to login'; } 
+ echo '<br>You need login to see list of member ! Click <a href="login.php"> here </a> to login'; } 
  else {
   require_once('db.php');
 
@@ -54,9 +54,8 @@ if (!isset($_SESSION['username'])) {
                           <p> <i class="glyphicon glyphicon-envelope"></i> <?=$user['email']?></p>
                           <p> <i class="glyphicon glyphicon-globe"></i> <?=$user['url']?></p>
                           <div class="action">
-                            <button type="button" title="Edit">
-                              <span>Profile</span>
-                            </button>
+                            <a href="info.php?id=<?=$user['id']?>">
+                            <button>Profile</button> </a>
                             <a href="delete.php?id=<?=$user['id']?>" onclick="return confirm('Are you sure?')"><button>Delete</button></a>
                           </div>
                         </div>
